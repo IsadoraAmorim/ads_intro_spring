@@ -31,11 +31,17 @@ public class ClientModel {
     @ApiModelProperty(notes = "The city of the client")
     private String city;
 
-    //..new attributes of V2
+    //...new attributes of V2
     @Column(nullable = true, length = 100)
     @Getter @Setter
     @ApiModelProperty(notes = "A valid email address")
     private String email;
+
+    //...relationship w/ ProfessionModel
+    @ManyToOne
+    @JoinColumn(name = "profession_id")
+    @Setter @Getter
+    private ProfessionModel profession;
 
 
 }
